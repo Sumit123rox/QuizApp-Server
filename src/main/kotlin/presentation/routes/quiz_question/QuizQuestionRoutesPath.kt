@@ -5,9 +5,20 @@ import io.ktor.resources.*
 @Resource("/quiz/questions")
 class QuizQuestionRoutesPath(
     val topicCode: Int? = null,
-    val limit: Int? = null,
 ) {
 
-    @Resource("/{questionId}")
+    @Resource("{questionId}")
     data class ById(val parent: QuizQuestionRoutesPath = QuizQuestionRoutesPath(), val questionId: String)
+
+    @Resource("bulk")
+    data class Bulk(
+        val parent: QuizQuestionRoutesPath = QuizQuestionRoutesPath(),
+    )
+
+    @Resource("random")
+    data class Random(
+        val parent: QuizQuestionRoutesPath = QuizQuestionRoutesPath(),
+        val topicCode: Int? = null,
+        val limit: Int? = null,
+    )
 }

@@ -6,10 +6,7 @@ import com.example.data.repository.QuizTopicRepositoryImpl
 import com.example.presentation.routes.issue_report.deleteIssueReportById
 import com.example.presentation.routes.issue_report.getAllQuizIssueReports
 import com.example.presentation.routes.issue_report.insertIssueReport
-import com.example.presentation.routes.quiz_question.deleteQuizQuestionById
-import com.example.presentation.routes.quiz_question.getAllQuizQuestions
-import com.example.presentation.routes.quiz_question.getQuizQuestionById
-import com.example.presentation.routes.quiz_question.upsertQuizQuestion
+import com.example.presentation.routes.quiz_question.*
 import com.example.presentation.routes.quiz_topic.deleteQuizTopicById
 import com.example.presentation.routes.quiz_topic.getAllQuizTopics
 import com.example.presentation.routes.quiz_topic.getQuizTopicById
@@ -34,6 +31,8 @@ fun Application.configurationRouting() {
         upsertQuizQuestion(repository = quizQuestionRepository)
         deleteQuizQuestionById(repository = quizQuestionRepository)
         getQuizQuestionById(repository = quizQuestionRepository)
+        insertQuizQuestionsInBulk(repository = quizQuestionRepository)
+        getRandomQuizQuestions(repository = quizQuestionRepository)
 
         //Quiz Topics
         getAllQuizTopics(repository = quizTopicRepository)
